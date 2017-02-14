@@ -1,0 +1,57 @@
+
+@import "config";
+
+// main
+.site{
+
+  p {
+    @include font-size(20px);
+  }
+
+  .transition{
+    border: 1px solid $color-black;
+    padding: 1em;
+    background: $color-white;
+    @include transition(background .8s ease);
+    &:hover{
+      background: $color-grey;
+      cursor: pointer;
+    }
+
+  }
+
+  // animation frames
+  @include keyframes(slide-down) {
+    0% { opacity: 1; }
+    90% { opacity: 0; }
+  }
+  .animated {
+    width: 100px;
+    height: 100px;
+    background: black;
+    @include animation('slide-down 5s 3');
+  }
+
+  .sidebar {
+    height: 60px;
+    // background: $color-black;
+    width: 60%;
+    float: left;
+    background: $color-black;
+    color: $color-white;
+    @include font-size(25px);
+    text-align: center;
+    margin: 0 2% 0 0;
+    @include bp-small {
+      width: 100%;
+      float: none;
+      margin: 0;
+    }//
+  }
+
+  .container-with-floated-children {
+    @extend %clearfix;
+  }
+
+}
+
